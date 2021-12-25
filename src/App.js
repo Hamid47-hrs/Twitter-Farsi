@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import RightSideBar from "./rightSideBar/RightSideBar";
+import MainBar from "./MainBar/MainBar";
+import LeftSideBar from "./leftSideBar/LeftSideBar";
+import { Grid } from "@material-ui/core";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Grid container>
+        <Grid item sm={3} xs={4}>
+          <RightSideBar />
+        </Grid>
+        <Grid item sm={7} xs={8}>
+          <MainBar />
+        </Grid>
+        <Grid item sm={2}>
+          <LeftSideBar />
+        </Grid>
+      </Grid>
+    </Fragment>
   );
 }
 
