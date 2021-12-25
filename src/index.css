@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "vazir";
+  src: url("fonts/vazir/Vazir.eot");    /* IE9 Compact Modes */
+  src: url("fonts/vazir/Vazir.eot?#iefix") format("embedded-opentype"),   /* IE6-IE8 */
+    url("fonts/vazir/Vazir.ttf") format("truetype"),    /* Super Modern Browsers */
+    url("fonts/vazir/Vazir.woff") format("woff"),   /* Pretty Modern Browsers */
+    url("fonts/vazir/Vazir.woff2") format("woff2"),  /* Safari, Android, iOS */
+    url("fonts/vazir/Vazir.svg#svgvazir") format("svg");    /* legacy iOS */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "vazir" !important;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
 }
