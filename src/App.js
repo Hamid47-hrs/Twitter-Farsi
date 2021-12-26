@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import RightSideBar from "./rightSideBar/RightSideBar";
-import MainBar from "./MainBar/MainBar";
-import LeftSideBar from "./leftSideBar/LeftSideBar";
+import RightSideBar from "./Components/Layouts/rightSideBar/RightSideBar";
+import MainBar from "./Components/Layouts/MainBar/MainBar";
+import LeftSideBar from "./Components/Layouts/leftSideBar/LeftSideBar";
 import { Grid } from "@material-ui/core";
 
 const App = () => {

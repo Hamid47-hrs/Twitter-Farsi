@@ -1,7 +1,7 @@
 import { Button, Container, Divider, Grid, TextField, Typography } from "@material-ui/core";
 import { Home, InsertPhotoRounded } from "@material-ui/icons";
 import useStyles from "./MainBarStyle";
-import pic from "../images/Hamid.jpg"
+import pic from "../../../images/Hamid.jpg"
 const MainBar = () => {
   const classes = useStyles();
 
@@ -20,7 +20,7 @@ const MainBar = () => {
           </Button>
           <Divider className={classes.divider}/>
             <div className={classes.fields}>
-                <img src={pic} alt="Profile Picture" className={classes.profilePic}/>
+                <img src={pic} alt="Profile Pic" className={classes.profilePic}/>
                 <TextField 
                 className={classes.textInput}
                 placeholder="توییت خود را وارد کنید ..."

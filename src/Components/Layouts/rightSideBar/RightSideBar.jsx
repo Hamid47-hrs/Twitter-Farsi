@@ -1,11 +1,7 @@
-import logo from "../images/Butterfly.svg";
-import Hashtag from "../images/HashTag.png";
+import logo from "../../../images/Butterfly.svg";
+import Hashtag from "../../../images/HashTag.png";
 import {
   Container,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Typography,
   Button,
 } from "@material-ui/core";
