@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "lightgreen",
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
+    overflow: "auto",
   },
   header: {
     margin: "0.5rem 0",
@@ -51,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
   },
   tweetButton: {
     marginBottom: theme.spacing(2),
+  },
+  body: {
+    marginTop: theme.spacing(3),
   }
 }));
 
