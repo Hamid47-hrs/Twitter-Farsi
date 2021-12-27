@@ -8,13 +8,13 @@ const App = () => {
   return (
     <Fragment>
       <Grid container>
-        <Grid item sm={3} xs={4}>
+        <Grid item sm={2} xs={3}>
           <RightSideBar />
         </Grid>
-        <Grid item sm={7} xs={8}>
+        <Grid item sm={7} xs={9}>
           <MainBar />
         </Grid>
-        <Grid item sm={2}>
+        <Grid item sm={3}>
           <LeftSideBar />
         </Grid>
       </Grid>
