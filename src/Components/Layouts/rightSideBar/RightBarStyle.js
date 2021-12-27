@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: yellow[200],
     padding: "0.2rem",
     paddingTop: theme.spacing(3),
+    height: "100vh",
+    position: "sticky",
+    top: 0,
   },
   header: {
     display: "flex",
