@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
     overflow: "auto",
+    height: "100vh",
   },
   header: {
     margin: "0.5rem 0",
