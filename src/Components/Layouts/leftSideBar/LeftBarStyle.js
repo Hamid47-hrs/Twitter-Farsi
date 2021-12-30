@@ -18,29 +18,6 @@ const useStyles = makeStyles((theme) => ({
   userName: {
     color: "#aaa",
   },
-  users: {
-    width: "100%",
-    marginTop: theme.spacing(0.5),
-    marginBottom: theme.spacing(0.5),
-  },
-  userImage: {
-    width: "50px",
-    borderRadius: "50%",
-    marginLeft: theme.spacing(2),
-  },
-  buttonContainer: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  },
-  userNames: {
-    fontSize: "0.9rem",
-    textTransform: "capitalize",
-  },
-  userID: {
-    fontSize: "0.9rem",
-    textTransform: "capitalize",
-    color: "#aaa",
-  },
 }));
 
 export default useStyles;
