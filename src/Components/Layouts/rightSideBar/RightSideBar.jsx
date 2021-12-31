@@ -1,11 +1,8 @@
 import logo from "../../../images/Butterfly.svg";
 import Hashtag from "../../../images/HashTag.png";
-import {
-  Container,
-  Typography,
-  Button,
-} from "@material-ui/core";
+import { Container, Typography, Button } from "@material-ui/core";
 import useStyles from "./RightBarStyle";
+import { Link } from "react-router-dom";
 
 const RightSideBar = () => {
   const classes = useStyles();
@@ -14,12 +11,14 @@ const RightSideBar = () => {
     <Container className={classes.root}>
       <div className={classes.header}>
         <img src={logo} alt="logo" className={classes.logo} />
-        <Typography className={classes.title1} variant="h5" component="h1">
-          توییتر فارسی
-        </Typography>
-        <Typography className={classes.title2} variant="h5" component="h1">
-          توییتر
-        </Typography>
+        <Link to="/">
+          <Typography className={classes.title1} variant="h5" component="h1">
+            توییتر فارسی
+          </Typography>
+          <Typography className={classes.title2} variant="h5" component="h1">
+            توییتر
+          </Typography>
+        </Link>
       </div>
       <div>
         <Typography className={classes.hashtag}>داغ ترین هشتگ ها</Typography>
@@ -56,7 +55,6 @@ const RightSideBar = () => {
             />
             <Typography className={classes.TagText}>هشتگ_اول</Typography>
           </Button>
-          
         </div>
       </div>
     </Container>
