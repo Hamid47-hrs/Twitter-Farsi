@@ -7,6 +7,12 @@ const TweetList = ({ data }) => {
   const classes = useStyles();
   const [count, setCount] = useState(data.likes);
 
+  const replacer = require("react-string-replace");
+  const renderHashTag = (text) => {
+    const pattern = /#(\S+)/g;
+    return replacer(text, pattern, (match, i) => (<a key={match + i} href={`/tag/${match}`} style={{color: "cornflowerblue"}}>#{match}</a>));
+  };
+
   return (
     <Grid container direction={"column"}>
       <Grid item>
@@ -41,7 +47,9 @@ const TweetList = ({ data }) => {
                   />
                 ) : null}
               </div>
-              <Typography className={classes.userText}>{data.tweet}</Typography>
+              <Typography className={classes.userText}>
+                {renderHashTag(data.tweet)}
+              </Typography>
             </div>
           </Grid>
         </Grid>
@@ -49,7 +57,7 @@ const TweetList = ({ data }) => {
       <Grid item className={classes.buttonContainer}>
         <Button
           className={classes.likeButton}
-          onClick={(prevState) => {
+          onClick={() => {
             count === data.likes ? setCount(count + 1) : setCount(count);
           }}
         >
