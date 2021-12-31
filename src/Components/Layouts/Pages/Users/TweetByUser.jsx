@@ -12,7 +12,7 @@ const data = [
     id: "Jim Cari",
     name: "جیم کری",
     tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
+      "بازی #call_of_duty حتما در جشنواره #گرمی امسال برنده بهترین #اسکار امسال جایزه بهترین بازیگر نقش اول #زن را خواهد برد.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     picture:
       "https://profile.callofduty.com/resources/cod/images/shared-logo.jpg",
@@ -23,7 +23,7 @@ const data = [
     id: "Jim Cari",
     name: "جیم کری",
     tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
+      "اینجا #هیچ چیز نیست اگر بود #خبر ت می کنم.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     picture: "",
     likes: 195,
@@ -33,7 +33,7 @@ const data = [
     id: "Jim Cari",
     name: "جیم کری",
     tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
+      "#گوربه های #کهکشانی خطرات جدید #نسل_بشر.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     picture:
       "https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg",
@@ -44,7 +44,7 @@ const data = [
     id: "Jim Cari",
     name: "جیم کری",
     tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
+      "از نمونه #فانوس های #بی_ناموس هستند. #بی_صاحب هم هستند.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     picture:
       "https://dp.profilepics.in/profile_pictures/flower/flower_profile_pictures_01.jpg",
@@ -55,7 +55,7 @@ const data = [
     id: "Jim Cari",
     name: "جیم کری",
     tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
+      "گروه #هکر های #anonimooos در یک حرکت #حیرت_آور آیدی خود را به #anoniBooos تغییر دادند.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     picture:
       "https://m.economictimes.com/thumb/msid-69381991,width-1200,height-900,resizemode-4,imgsize-594328/hacker-1.jpg",
@@ -66,7 +66,7 @@ const data = [
     id: "Jim Cari",
     name: "جیم کری",
     tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
+      "there was #nothing here at the #begining. if it was i would let you #notice",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     picture: "",
     likes: 167,
