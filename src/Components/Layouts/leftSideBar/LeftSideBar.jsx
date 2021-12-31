@@ -10,7 +10,7 @@ const data = [
     name: "حمید رضا",
     img: "https://i1.sndcdn.com/artworks-OlAdg6obJPZLU8dE-veA0NA-t500x500.jpg",
     alt: "Hamid",
-    link: "#",
+    link: "/hamid_reza",
   },
   {
     key: 2,
@@ -18,7 +18,7 @@ const data = [
     name: "جیم کری",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
     alt: "Jim",
-    link: "#",
+    link: "/jim_carrey",
   },
   {
     key: 3,
@@ -26,7 +26,7 @@ const data = [
     name: "جان دو",
     img: "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png",
     alt: "Jim",
-    link: "#",
+    link: "/john_doe",
   },
   {
     key: 4,
@@ -34,7 +34,7 @@ const data = [
     name: "اما واتسون",
     img: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTQzMzAxODc2MTU3MjYxMzgz/emma-watson_gettyimages-619546914jpg.jpg",
     alt: "Jim",
-    link: "#",
+    link: "/emma_watson",
   },
   {
     key: 5,
@@ -42,7 +42,7 @@ const data = [
     name: "هنری کویل",
     img: "https://i.guim.co.uk/img/media/1af905f750e1dc85eb490a3ec20bf76fb3ac51f7/0_486_2518_1509/master/2518.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=f50c0895969f6e081f7fb867c675fbb2",
     alt: "Jim",
-    link: "#",
+    link: "/henry_cavill",
   },
 ];
 
