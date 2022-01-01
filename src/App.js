@@ -20,7 +20,7 @@ const App = () => {
             <MainBar>
               <Switch>
                 <Route exact path={"/"} component={HomePage} />
-                <Route path={"/jim_carrey"} component={TweetByUser} />
+                <Route exact path={"/users/:user"} component={TweetByUser} />
                 <Route component={Page404} />
               </Switch>
             </MainBar>

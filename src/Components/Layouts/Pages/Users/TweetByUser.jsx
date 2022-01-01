@@ -73,7 +73,7 @@ const data = [
   },
 ];
 
-const HomeP = () => {
+const HomeP = (props) => {
   const classes = useStyle();
 
   return (
@@ -86,7 +86,7 @@ const HomeP = () => {
       >
         <Grid item>
           <Header
-            title={"Jim Cari"}
+            title={props.match.params.user}
             icon={<Peapole className={classes.homeIco} />}
           />
         </Grid>
