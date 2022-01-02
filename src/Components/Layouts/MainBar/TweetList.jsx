@@ -10,7 +10,15 @@ const TweetList = ({ data }) => {
   const replacer = require("react-string-replace");
   const renderHashTag = (text) => {
     const pattern = /#(\S+)/g;
-    return replacer(text, pattern, (match, i) => (<a key={match + i} href={`/tag/${match}`} style={{color: "cornflowerblue"}}>#{match}</a>));
+    return replacer(text, pattern, (match, i) => (
+      <a
+        key={match + i}
+        href={`/tag/${match}`}
+        style={{ color: "cornflowerblue" }}
+      >
+        #{match}
+      </a>
+    ));
   };
 
   return (
@@ -35,10 +43,10 @@ const TweetList = ({ data }) => {
           <Grid item className={classes.content}>
             <div className={classes.introduction}>
               <Typography className={classes.userName}>{data.name}</Typography>
-              <Typography className={classes.userID}>{data.id}@</Typography>
+              <Typography className={classes.userID}>{data.userId}@</Typography>
             </div>
             <div className={classes.textContainer}>
-              <div>
+              <div className={classes.picContainer}>
                 {data.picture ? (
                   <img
                     className={classes.userPicture}

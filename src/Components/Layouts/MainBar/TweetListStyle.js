@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
   userID: {
     color: "#aaa",
   },
+  picContainer: {
+    maxHeight: "500px",
+    overflow: "hidden"
+  },
   userPicture: {
     width: "100%",
     borderRadius: "4px",
