@@ -4,82 +4,38 @@ import useStyle from "./HomePStyle";
 import pic from "../../../images/Hamid.jpg";
 import TweetList from "../MainBar/TweetList";
 import Header from "../Header/Header";
-
-const data = [
-  {
-    key: 1,
-    id: "hamid_Reza",
-    name: "حمید رضا",
-    tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
-    image:
-      "https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg",
-    picture:
-      "https://profile.callofduty.com/resources/cod/images/shared-logo.jpg",
-    likes: 578,
-  },
-  {
-    key: 2,
-    id: "Mr_Nigma",
-    name: "Nigma_Riddler",
-    tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
-    image:
-      "https://bestprofilepictures.com/wp-content/uploads/2021/04/Cool-Profile-Picture.jpg",
-    picture: "",
-    likes: 195,
-  },
-  {
-    key: 3,
-    id: "Ali_Ahmadi",
-    name: "علی احمدی",
-    tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg",
-    picture:
-      "https://www.wallpapertip.com/wmimgs/30-308464_cool-profile-pictures-1080p.jpg",
-    likes: 65,
-  },
-  {
-    key: 4,
-    id: "mamad_RK",
-    name: "محمد رک",
-    tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
-    image:
-      "http://gokubi.com/wp-content/uploads/2013/10/Steve-Andersen-Headshot-square1.jpeg",
-    picture:
-      "https://dp.profilepics.in/profile_pictures/flower/flower_profile_pictures_01.jpg",
-    likes: 3,
-  },
-  {
-    key: 5,
-    id: "Hesammmm_2",
-    name: "حسام_کوک",
-    tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
-    image:
-      "https://bestprofilepictures.com/wp-content/uploads/2021/04/Cool-Profile-Picture-For-Discord.jpg",
-    picture:
-      "https://m.economictimes.com/thumb/msid-69381991,width-1200,height-900,resizemode-4,imgsize-594328/hacker-1.jpg",
-    likes: 212,
-  },
-  {
-    key: 6,
-    id: "unKnown",
-    name: "ناشناس",
-    tweet:
-      "این تفاوت ها و شباهت ها همه بی سابقه است. واقعا باید شدید و قاطع بود.",
-    image: "",
-    picture: "",
-    likes: 167,
-  },
-];
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const HomeP = () => {
   const classes = useStyle();
+  const [posts, setPosts] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:4000/homePagePosts")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const createNewTweet = () => {
+    const tweet = document.querySelector("#tweetInput").value;
+
+    const data = {
+      id: Math.floor(Math.random() * 1000),
+      userId: "hamid_Reza",
+      name: "حمید رضا",
+      tweet: tweet,
+      image:
+        "https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg",
+      picture: "",
+      likes: 578,
+    };
+    axios
+      .post("http://localhost:4000/homePagePosts", data)
+      .then((response) => console.log(`Response: ${response}`))
+      .catch((err) => console.log(`Error: ${err}`));
+  };
   return (
     <>
       <Grid
@@ -96,6 +52,7 @@ const HomeP = () => {
             <img src={pic} alt="Profile Pic" className={classes.profilePic} />
             <TextField
               className={classes.textInput}
+              id="tweetInput"
               placeholder="توییت خود را وارد کنید ..."
               multiline
               row={3}
@@ -108,13 +65,14 @@ const HomeP = () => {
               variant="outlined"
               color="primary"
               className={classes.tweetButton}
+              onClick={createNewTweet}
             >
               توییت کن
             </Button>
           </div>
-          <Divider />
-          {data.map((tweets) => (
-            <TweetList key={tweets.key} data={tweets} />
+          <Divider className={classes.divider} />
+          {posts.map((tweets, index) => (
+            <TweetList key={index} data={tweets} />
           ))}
         </Grid>
       </Grid>
