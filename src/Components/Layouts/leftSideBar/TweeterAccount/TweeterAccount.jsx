@@ -18,7 +18,7 @@ const TweetMan = ({ data }) => {
             <div>
               <Typography className={classes.userNames}>{data.name}</Typography>
               <Typography to={data.link} className={classes.userID}>
-                {data.id}@
+                {data.userId}@
               </Typography>
             </div>
           </Button>

@@ -1,40 +1,35 @@
 {
   "users": [
     {
-      "key": 1,
-      "id": "hamid_Reza",
+      "userId": "hamid_Reza",
       "name": "حمید رضا",
       "img": "https://i1.sndcdn.com/artworks-OlAdg6obJPZLU8dE-veA0NA-t500x500.jpg",
       "alt": "Hamid",
       "link": "/hamid_reza"
     },
     {
-      "key": 2,
-      "id": "Jim_Cari",
+      "userId": "Jim_Cari",
       "name": "جیم کری",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJd6FLxNV-xGNmMkIIDxyUFin0zE2TMa-bkA&usqp=CAU",
       "alt": "Jim",
       "link": "/jim_carrey"
     },
     {
-      "key": 3,
-      "id": "John_Doe",
+      "userId": "John_Doe",
       "name": "جان دو",
       "img": "https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png",
       "alt": "Jim",
       "link": "/john_doe"
     },
     {
-      "key": 4,
-      "id": "Emma_Watson",
+      "userId": "Emma_Watson",
       "name": "اما واتسون",
       "img": "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTQzMzAxODc2MTU3MjYxMzgz/emma-watson_gettyimages-619546914jpg.jpg",
       "alt": "Jim",
       "link": "/emma_watson"
     },
     {
-      "key": 5,
-      "id": "Henry_Cavill",
+      "userId": "Henry_Cavill",
       "name": "هنری کویل",
       "img": "https://i.guim.co.uk/img/media/1af905f750e1dc85eb490a3ec20bf76fb3ac51f7/0_486_2518_1509/master/2518.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=f50c0895969f6e081f7fb867c675fbb2",
       "alt": "Jim",
@@ -43,8 +38,7 @@
   ],
   "homePagePosts": [
     {
-      "key": 1,
-      "id": "hamid_Reza",
+      "userId": "hamid_Reza",
       "name": "حمید رضا",
       "tweet": "کماکان در پی یافتن #لینک بهتر.",
       "image": "https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg",
@@ -52,8 +46,7 @@
       "likes": 578
     },
     {
-      "key": 2,
-      "id": "Mr_Nigma",
+      "userId": "Mr_Nigma",
       "name": "Nigma_Riddler",
       "tweet": "این که نشد. یعنی چی؟ چرا باید همه چیز در این #دنیا محصور بشه.",
       "image": "https://bestprofilepictures.com/wp-content/uploads/2021/04/Cool-Profile-Picture.jpg",
@@ -61,8 +54,7 @@
       "likes": 195
     },
     {
-      "key": 3,
-      "id": "Ali_Ahmadi",
+      "userId": "Ali_Ahmadi",
       "name": "علی احمدی",
       "tweet": "در #تاریکی نه بعد #زمان مهم است نه #مکان.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg",
@@ -70,8 +62,7 @@
       "likes": 65
     },
     {
-      "key": 4,
-      "id": "mamad_RK",
+      "userId": "mamad_RK",
       "name": "محمد رک",
       "tweet": "اجازه ندهید که #مردم درباره شما بیش از حد #بدانند!",
       "image": "http://gokubi.com/wp-content/uploads/2013/10/Steve-Andersen-Headshot-square1.jpeg",
@@ -79,8 +70,7 @@
       "likes": 3
     },
     {
-      "key": 5,
-      "id": "Hesammmm_2",
+      "userId": "Hesammmm_2",
       "name": "حسام_کوک",
       "tweet": "هیچوقت در هیچ زمانى، هیچ جایى از #هیچکسى هیچ #انتظارى نداشته باشید!",
       "image": "https://bestprofilepictures.com/wp-content/uploads/2021/04/Cool-Profile-Picture-For-Discord.jpg",
@@ -88,8 +78,7 @@
       "likes": 212
     },
     {
-      "key": 6,
-      "id": "unKnown",
+      "userId": "unKnown",
       "name": "ناشناس",
       "tweet": "حرفاتو #میفهمن و برداشت می کنن چیزی برای کسی #توضیح نده!",
       "image": "",
