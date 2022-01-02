@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Divider, Grid, Typography } from "@material-ui/core";
 import useStyles from "./LeftBarStyle";
 import TweetMan from "./TweeterAccount/TweeterAccount";
+import SearchBar from "./Search/SreachBar";
 import pic from "../../../images/Hamid.jpg";
 
 const LeftSideBar = () => {
@@ -18,6 +19,7 @@ const LeftSideBar = () => {
 
   return (
     <Container className={classes.root}>
+      <SearchBar />
       <Grid container direction="column" justifyContent="flex-start">
         <Grid item className={classes.header}>
           <img className={classes.profilePicture} src={pic} alt="prifile pic" />
