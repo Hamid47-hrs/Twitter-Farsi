@@ -1,12 +1,21 @@
-import logo from "../../../images/Butterfly.svg";
-import Hashtag from "../../../images/HashTag.png";
-import { Container, Typography, Button } from "@material-ui/core";
-import useStyles from "./RightBarStyle";
+import { Container, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import useStyles from "./RightBarStyle";
+import logo from "../../../images/Butterfly.svg";
+import TweetsByHashTags from "./TweetsHashTags/TweetsByHashTags";
+import { useEffect, useState } from "react";
 
 const RightSideBar = () => {
   const classes = useStyles();
 
+  const [tweets, setTweets] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:4000/hashTags")
+      .then((response) => response.json())
+      .then((data) => setTweets(data))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <Container className={classes.root}>
       <div className={classes.header}>
@@ -23,38 +32,9 @@ const RightSideBar = () => {
       <div>
         <Typography className={classes.hashtag}>داغ ترین هشتگ ها</Typography>
         <div>
-          <Button href="#" className={classes.hashLink}>
-            <img
-              src={Hashtag}
-              alt="HashTag-Logo"
-              className={classes.hashLogo}
-            />
-            <Typography className={classes.TagText}>هشتگ_اول</Typography>
-          </Button>
-          <Button href="#" className={classes.hashLink}>
-            <img
-              src={Hashtag}
-              alt="HashTag-Logo"
-              className={classes.hashLogo}
-            />
-            <Typography className={classes.TagText}>هشتگ_اول</Typography>
-          </Button>
-          <Button href="#" className={classes.hashLink}>
-            <img
-              src={Hashtag}
-              alt="HashTag-Logo"
-              className={classes.hashLogo}
-            />
-            <Typography className={classes.TagText}>هشتگ_اول</Typography>
-          </Button>
-          <Button href="#" className={classes.hashLink}>
-            <img
-              src={Hashtag}
-              alt="HashTag-Logo"
-              className={classes.hashLogo}
-            />
-            <Typography className={classes.TagText}>هشتگ_اول</Typography>
-          </Button>
+          {tweets.map((tweet, index) => (
+            <TweetsByHashTags key={index} data={tweet} />
+          ))}
         </div>
       </div>
     </Container>

@@ -50,31 +50,6 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1rem",
     },
   },
-  hashLink: {
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: "0.5rem",
-    "&:hover": {
-      backgroundColor: "#315dee",
-      color: "#fff",
-    },
-  },
-  hashLogo: {
-    width: "2rem",
-    marginLeft: theme.spacing(2),
-    border: "1px solid #315dee",
-    padding: "0.2rem",
-    borderRadius: "4px",
-    [theme.breakpoints.down("425")]: {
-      width: "30%",
-    },
-  },
-  TagText: {
-    fontSize: "1.1rem",
-    [theme.breakpoints.down("425")]: {
-      fontSize: "0.7rem",
-    },
-  },
 }));
 
 export default useStyles;
