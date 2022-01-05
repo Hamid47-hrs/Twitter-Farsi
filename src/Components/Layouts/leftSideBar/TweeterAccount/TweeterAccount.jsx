@@ -6,7 +6,7 @@ const TweetMan = ({ data }) => {
   const classes = useStyle();
   return (
     <div className={classes.buttonContainer}>
-        <Link to={`/users/${data.id}`} className={classes.users}>
+        <Link to={`/users/${data.userId}`} className={classes.users}>
           <Button className={classes.users}>
             <div className={classes.imageContainer}>
               <img

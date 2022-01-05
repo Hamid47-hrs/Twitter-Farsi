@@ -9,7 +9,7 @@ const pic =
 const data = [
   {
     key: 1,
-    id: "Jim Cari",
+    userId: "Jim Cari",
     name: "جیم کری",
     tweet:
       "بازی #call_of_duty حتما در جشنواره #گرمی امسال برنده بهترین #اسکار امسال جایزه بهترین بازیگر نقش اول #زن را خواهد برد.",
@@ -20,7 +20,7 @@ const data = [
   },
   {
     key: 2,
-    id: "Jim Cari",
+    userId: "Jim Cari",
     name: "جیم کری",
     tweet:
       "اینجا #هیچ چیز نیست اگر بود #خبر ت می کنم.",
@@ -30,7 +30,7 @@ const data = [
   },
   {
     key: 3,
-    id: "Jim Cari",
+    userId: "Jim Cari",
     name: "جیم کری",
     tweet:
       "#گوربه های #کهکشانی خطرات جدید #نسل_بشر.",
@@ -41,7 +41,7 @@ const data = [
   },
   {
     key: 4,
-    id: "Jim Cari",
+    userId: "Jim Cari",
     name: "جیم کری",
     tweet:
       "از نمونه #فانوس های #بی_ناموس هستند. #بی_صاحب هم هستند.",
@@ -52,7 +52,7 @@ const data = [
   },
   {
     key: 5,
-    id: "Jim Cari",
+    userId: "Jim Cari",
     name: "جیم کری",
     tweet:
       "گروه #هکر های #anonimooos در یک حرکت #حیرت_آور آیدی خود را به #anoniBooos تغییر دادند.",
@@ -63,7 +63,7 @@ const data = [
   },
   {
     key: 6,
-    id: "Jim Cari",
+    userId: "Jim Cari",
     name: "جیم کری",
     tweet:
       "there was #nothing here at the #begining. if it was i would let you #notice",
@@ -75,7 +75,6 @@ const data = [
 
 const HomeP = (props) => {
   const classes = useStyle();
-
   return (
     <>
       <Grid
