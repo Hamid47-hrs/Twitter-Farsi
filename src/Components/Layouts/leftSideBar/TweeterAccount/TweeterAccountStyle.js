@@ -9,8 +9,8 @@ const useStyle = makeStyles((theme) => ({
     paddingRight: theme.spacing(3), 
   },
   imageContainer: {
-    display: "inline",
-    position: "relative",
+    // display: "inline",
+    // position: "relative",
     width: "60px",
     height: "60px",
     overflow: "hidden",
