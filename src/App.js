@@ -15,21 +15,30 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path={"/login"} component={Login} />
-          <Grid container>
-            <Grid item sm={2} xs={3}>
-              <RightSideBar />
-            </Grid>
-            <Grid item sm={7} xs={9}>
-              <MainBar>
-                <Route exact path={"/"} component={HomePage} />
-                <Route exact path={"/users/:user"} component={TweetByUser} />
-                <Route component={Page404} />
-              </MainBar>
-            </Grid>
-            <Grid item sm={3}>
-              <LeftSideBar />
-            </Grid>
-          </Grid>
+          <Route
+            patch={"/"}
+            render={() => (
+              <Grid container>
+                <Grid item sm={2} xs={3}>
+                  <RightSideBar />
+                </Grid>
+                <Grid item sm={7} xs={9}>
+                  <MainBar>
+                    <Route exact path={"/"} component={HomePage} />
+                    <Route
+                      exact
+                      path={"/users/:user"}
+                      component={TweetByUser}
+                    />
+                    <Route component={Page404} />
+                  </MainBar>
+                </Grid>
+                <Grid item sm={3}>
+                  <LeftSideBar />
+                </Grid>
+              </Grid>
+            )}
+          />
         </Switch>
       </Router>
     </Fragment>
