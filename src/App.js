@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import { Grid } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {ToastContainer} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import RightSideBar from "./Components/Layouts/rightSideBar/RightSideBar";
 import MainBar from "./Components/Layouts/MainBar/MainBar";
 import LeftSideBar from "./Components/Layouts/leftSideBar/LeftSideBar";
@@ -41,7 +43,8 @@ const App = () => {
           />
         </Switch>
       </Router>
-    </Fragment>
+      <ToastContainer />
+      </Fragment>
   );
 };
 
