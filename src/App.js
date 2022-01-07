@@ -1,7 +1,12 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { Grid } from "@material-ui/core";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {ToastContainer} from "react-toastify";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import RightSideBar from "./Components/Layouts/rightSideBar/RightSideBar";
 import MainBar from "./Components/Layouts/MainBar/MainBar";
@@ -16,8 +21,8 @@ const App = () => {
     <Fragment>
       <Router>
         <Switch>
-          <Route exact path={"/login"} component={Login} />
-          <Route
+          <PublicRoute exact path={"/login"} component={Login} />
+          <PrivateRoute
             patch={"/"}
             render={() => (
               <Grid container>
@@ -44,7 +49,33 @@ const App = () => {
         </Switch>
       </Router>
       <ToastContainer />
-      </Fragment>
+    </Fragment>
+  );
+};
+
+const isLogin = localStorage.getItem("x-auth-token");
+
+const PublicRoute = ({ component, ...props }) => {
+  return (
+    <Route
+      {...props}
+      render={(props) => {
+        if (isLogin) return <Redirect to={"/"} />;
+        else return React.createElement(component, props);
+      }}
+    />
+  );
+};
+
+const PrivateRoute = ({ render, ...props }) => {
+  return (
+    <Route
+      {...props}
+      render={(props) => {
+        if (isLogin) return render(props);
+        else return <Redirect to={"/login"} />;
+      }}
+    />
   );
 };
 
