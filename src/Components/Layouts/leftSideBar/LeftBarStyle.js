@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "start",
     paddingTop: theme.spacing(3),
     paddingBottom: theme.spacing(3),
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
   profilePicture: {
     width: "40%",
