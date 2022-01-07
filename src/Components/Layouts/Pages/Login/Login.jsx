@@ -32,6 +32,8 @@ const Login = () => {
     if (!user.username) return "نام کاربری وارد نشده است";
     if (!user.password) return "رمز عبور وارد نشده است";
     if (!user.confirmPassword) return "تکرار رمز عبور وارد نشده است";
+    if (user.name === user.password)
+      return "نام کاربری و رمز عبور نمی تواند مشابه باشد";
     if (user.password !== user.confirmPassword)
       return "تکرار رمز عبور درست نیست";
   };
@@ -56,6 +58,7 @@ const Login = () => {
         localStorage.setItem("name", response.data.name);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("x-auth-token", response.data["x-auth-token"]);
+        window.location.reload();
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -65,8 +68,8 @@ const Login = () => {
 
   const handleLogin = () => {
     const user = {
-      username: userNameLogin,
-      password: userPasswordLogin,
+      username: userNameLogin, //hamid47
+      password: userPasswordLogin, //12345678
     };
 
     const loginError = validateLogin(user);
@@ -80,6 +83,7 @@ const Login = () => {
         localStorage.setItem("image", response.data.image);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("x-auth-token", response.data["x-auth-token"]);
+        window.location.reload();
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -109,6 +113,7 @@ const Login = () => {
             ></Input>
             <Typography className={classes.text}>رمز عبور</Typography>
             <Input
+              type={"password"}
               className={classes.input}
               value={userPasswordLogin}
               onChange={(e) => setUserPasswordLogin(e.target.value)}
@@ -134,12 +139,14 @@ const Login = () => {
             ></Input>
             <Typography className={classes.text}>رمز عبور</Typography>
             <Input
+              type={"password"}
               className={classes.input}
               value={userPasswordRegister}
               onChange={(e) => setUserPasswordRegister(e.target.value)}
             ></Input>
             <Typography className={classes.text}>تکرار رمز عبور</Typography>
             <Input
+              type={"password"}
               className={classes.input}
               value={confirmUserPasswordRegister}
               onChange={(e) => setConfirmUserPasswordRegister(e.target.value)}
