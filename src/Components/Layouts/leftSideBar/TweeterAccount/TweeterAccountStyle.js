@@ -23,6 +23,7 @@ const useStyle = makeStyles((theme) => ({
     marginLeft: "15px",
   },
   buttonContainer: {
+    marginLeft: theme.spacing(2),
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },

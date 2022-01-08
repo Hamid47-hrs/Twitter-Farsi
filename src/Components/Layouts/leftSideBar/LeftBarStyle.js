@@ -1,22 +1,32 @@
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    overflow: "auto",
+    height: "100vh",
+  },
   header: {
     display: "flex",
     alignItems: "center",
     justifyContent: "start",
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
     "&:hover": {
       cursor: "pointer",
     },
   },
-  profilePicture: {
-    width: "40%",
+  profileImageContainer: {
+    width: 70,
+    height: 70,
+    overflow: "hidden",
     borderRadius: "50%",
     marginLeft: theme.spacing(2),
     boxShadow: "0 0 10px #aaa",
+  },
+  profilePicture: {
+    width: "auto",
+    height: "100%",
+    marginLeft: "15px",
   },
   userName: {
     color: "#aaa",

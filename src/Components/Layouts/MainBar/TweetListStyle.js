@@ -1,12 +1,18 @@
 import { makeStyles } from "@material-ui/core";
-
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+  },
   imageContainer: {
-    flex: 0,
+    width: 60,
+    height: 60,
+    overflow: "hidden",
+    borderRadius: "50%",
   },
   profileImage: {
-    width: "80px",
-    borderRadius: "50%",
+    width: "auto",
+    height: "100%",
+    marginLeft: 15,
   },
   content: {
     flex: 1,
@@ -25,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   picContainer: {
     maxHeight: "500px",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   userPicture: {
     width: "100%",
@@ -33,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "3px 3px 10px #00000090",
   },
   userText: {
+    wordBreak: "break-word",
     textAlign: "justify",
     marginRight: theme.spacing(0.5),
     marginLeft: theme.spacing(0.5),
@@ -56,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
   likeCount: {
     marginLeft: theme.spacing(1),
-  }
+  },
 }));
 
 export default useStyles;
