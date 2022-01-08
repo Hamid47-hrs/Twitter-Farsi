@@ -22,14 +22,14 @@ const TweetList = ({ data }) => {
   };
 
   return (
-    <Grid container direction={"column"}>
+    <Grid container direction={"column"} className={classes.root}>
       <Grid item>
         <Grid container>
           <Grid item className={classes.imageContainer}>
-            {data.image ? (
+            {(data.user.image && data.user.image !== "undefined") ? (
               <img
                 className={classes.profileImage}
-                src={data.image}
+                src={data.user.image}
                 alt="profile pic"
               />
             ) : (
@@ -42,21 +42,21 @@ const TweetList = ({ data }) => {
           </Grid>
           <Grid item className={classes.content}>
             <div className={classes.introduction}>
-              <Typography className={classes.userName}>{data.name}</Typography>
-              <Typography className={classes.userID}>{data.userId}@</Typography>
+              <Typography className={classes.userName}>{data.user.name}</Typography>
+              <Typography className={classes.userID}>{data.user.id}@</Typography>
             </div>
             <div className={classes.textContainer}>
               <div className={classes.picContainer}>
-                {data.picture ? (
+                {(data.user.image && data.user.image !== "undefined") ? (
                   <img
                     className={classes.userPicture}
-                    src={data.picture}
+                    src={data.user.image}
                     alt="userPicture"
                   />
                 ) : null}
               </div>
               <Typography className={classes.userText}>
-                {renderHashTag(data.tweet)}
+                {renderHashTag(data.text)}
               </Typography>
             </div>
           </Grid>
