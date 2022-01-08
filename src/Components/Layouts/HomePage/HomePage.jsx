@@ -12,7 +12,12 @@ const HomeP = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/homePagePosts")
+    fetch("https://twitterapi.liara.run/api/getAllTweet", {
+      method: "POST",
+      headers: {
+        "x-auth-token": localStorage.getItem("x-auth-token"),
+      },
+    })
       .then((response) => response.json())
       .then((data) => setPosts(data))
       .catch((err) => console.log(err));
