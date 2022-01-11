@@ -47,10 +47,10 @@ const TweetList = ({ data }) => {
             </div>
             <div className={classes.textContainer}>
               <div className={classes.picContainer}>
-                {(data.user.image && data.user.image !== "undefined") ? (
+                {(data.image && data.image !== "undefined") ? (
                   <img
                     className={classes.userPicture}
-                    src={data.user.image}
+                    src={data.image}
                     alt="userPicture"
                   />
                 ) : null}
