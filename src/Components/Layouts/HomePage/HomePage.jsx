@@ -1,17 +1,24 @@
 import { TextField, Divider, Button, Grid } from "@material-ui/core";
 import { InsertPhotoRounded, Home } from "@material-ui/icons";
 import useStyle from "./HomePStyle";
-import pic from "../../../images/Hamid.jpg";
+import pic from "../../../images/BlankProfile.png";
 import TweetList from "../MainBar/TweetList";
 import Header from "../Header/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const HomeP = () => {
   const classes = useStyle();
   const [posts, setPosts] = useState([]);
+  const [tweet, setTweet] = useState("");
+  const [imageFile, setImageFile] = useState([]);
+  const [imagePath, setImagePath] = useState("");
+  const [style, setStyle] = useState({ display: "none" });
 
-  useEffect(() => {
+  const inputFile = useRef();
+
+  const updateTweet = () => {
     fetch("https://twitterapi.liara.run/api/getAllTweet", {
       method: "POST",
       headers: {
@@ -19,28 +26,60 @@ const HomeP = () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => setPosts(data))
+      .then((data) => {
+        setPosts(data);
+      })
       .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    updateTweet();
   }, []);
 
-  const createNewTweet = () => {
-    const tweet = document.querySelector("#tweetInput").value;
+  const imageHandler = (event) => {
+    if (event.target.files && event.target.files.length > 0)
+      setImageFile(event.target.files[0]);
 
-    const data = {
-      id: Math.floor(Math.random() * 1000),
-      userId: "hamid_Reza",
-      name: "حمید رضا",
-      tweet: tweet,
-      image:
-        "https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg",
-      picture: "",
-      likes: 578,
+    const render = new FileReader();
+    render.onload = (event) => {
+      setImagePath(event.target.result);
+    };
+    render.readAsDataURL(event.target.files[0]);
+  };
+
+  const selectImage = () => {
+    inputFile.current.click();
+  };
+
+  const createNewTweet = () => {
+    const formData = new FormData();
+    formData.append("text", tweet);
+    if (imageFile) formData.append("image", imageFile);
+    const config = {
+      headers: {
+        "x-auth-token": localStorage.getItem("x-auth-token"),
+      },
     };
     axios
-      .post("http://localhost:4000/homePagePosts", data)
-      .then((response) => console.log(`Response: ${response}`))
-      .catch((err) => console.log(`Error: ${err}`));
+      .post("https://twitterapi.liara.run/api/newTweet", formData, config)
+      .then((response) => {
+        toast.success("پست شما با موفقیت ارسال شد");
+        updateTweet();
+        setTweet("");
+      })
+      .catch((error) => {
+        toast.error("ارسال پست ناموفق بود");
+      });
   };
+
+  const getImage = () => {
+    if (
+      localStorage.getItem("image") &&
+      localStorage.getItem("image") !== "undefined"
+    ) {
+      return localStorage.getItem("image");
+    } else return pic;
+  };
+
   return (
     <>
       <Grid
@@ -54,18 +93,44 @@ const HomeP = () => {
         </Grid>
         <Grid item className={classes.body}>
           <div className={classes.fields}>
-            <img src={pic} alt="Profile Pic" className={classes.profilePic} />
+            <img
+              src={getImage()}
+              alt="Profile Pic"
+              className={classes.profilePic}
+            />
             <TextField
               className={classes.textInput}
-              id="tweetInput"
+              value={tweet}
               placeholder="توییت خود را وارد کنید ..."
               multiline
               row={3}
               maxRows={4}
+              onChange={(event) => setTweet(event.target.value)}
             />
           </div>
           <div className={classes.buttons}>
-            <InsertPhotoRounded className={classes.imgIcon} />
+            {imagePath && (
+              <div className={classes.pictureContainer}>
+                <img
+                  src={imagePath}
+                  className={classes.userPicture}
+                  alt="userPicture"
+                  style={style}
+                />
+              </div>
+            )}
+            <InsertPhotoRounded
+              className={classes.imgIcon}
+              onClick={selectImage}
+              onMouseEnter={(e) => setStyle({ display: "block" })}
+              onMouseLeave={(e) => setStyle({ display: "none" })}
+            />
+            <input
+              type={"file"}
+              style={{ display: "none" }}
+              ref={inputFile}
+              onChange={imageHandler}
+            />
             <Button
               variant="outlined"
               color="primary"
