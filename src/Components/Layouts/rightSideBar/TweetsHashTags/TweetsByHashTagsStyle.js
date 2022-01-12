@@ -24,10 +24,11 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   TagText: {
-    fontSize: "1.1rem",
+    fontSize: "1rem",
     [theme.breakpoints.down("425")]: {
       fontSize: "0.7rem",
     },
+    wordBreak: "break-word",
   },
 }));
 

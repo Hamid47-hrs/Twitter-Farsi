@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "0.2rem",
     paddingTop: theme.spacing(3),
     height: "100vh",
+    overflow: "auto",
     position: "sticky",
     top: 0,
   },
