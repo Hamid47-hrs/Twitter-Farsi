@@ -6,7 +6,7 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(0.5),
     marginBottom: theme.spacing(0.5),
     justifyContent: "start",
-    paddingRight: theme.spacing(3), 
+    paddingRight: theme.spacing(1), 
   },
   imageContainer: {
     // display: "inline",
