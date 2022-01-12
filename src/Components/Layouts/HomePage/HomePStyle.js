@@ -11,6 +11,7 @@ const useStyle = makeStyles((theme) => ({
   },
   profilePic: {
     width: "6rem",
+    height: "6rem",
     borderRadius: "50%",
     marginLeft: theme.spacing(2),
   },
@@ -30,6 +31,20 @@ const useStyle = makeStyles((theme) => ({
     "&:hover": {
       color: theme.palette.secondary.dark,
     },
+  },
+  pictureContainer: {
+    position: "relative",
+  },
+  userPicture: {
+    position: "absolute",
+    top: -25,
+    left: 10,
+    maxWidth: 300,
+    maxHeight: 300,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    borderRadius: "4px",
+    boxShadow: "2px 2px 5px #aaa",
   },
   tweetButton: {
     marginBottom: theme.spacing(2),
