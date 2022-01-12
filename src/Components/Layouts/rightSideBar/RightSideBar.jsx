@@ -4,17 +4,20 @@ import useStyles from "./RightBarStyle";
 import logo from "../../../images/Butterfly.svg";
 import TweetsByHashTags from "./TweetsHashTags/TweetsByHashTags";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const RightSideBar = () => {
   const classes = useStyles();
 
-  const [tweets, setTweets] = useState([]);
+  const [hashTags, setHashTags] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/hashTags")
-      .then((response) => response.json())
-      .then((data) => setTweets(data))
-      .catch((err) => console.log(err));
+    axios("https://twitterapi.liara.run/api/getAllHashTags", {
+      headers: {
+        "x-auth-token": localStorage.getItem("x-auth-token"),
+      },
+    }).then((response) => setHashTags(response.data))
+    .catch((err) => console.log(err));
   }, []);
   return (
     <Container className={classes.root}>
@@ -32,7 +35,7 @@ const RightSideBar = () => {
       <div>
         <Typography className={classes.hashtag}>داغ ترین هشتگ ها</Typography>
         <div>
-          {tweets.map((tweet, index) => (
+          {hashTags.map((tweet, index) => (
             <TweetsByHashTags key={index} data={tweet} />
           ))}
         </div>

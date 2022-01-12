@@ -24,10 +24,13 @@ const LeftSideBar = () => {
   const imageInput = useRef();
 
   useEffect(() => {
-    fetch("http://localhost:4000/users")
-      .then((response) => response.json())
-      .then((data) => setUser(data))
-      .catch((err) => console.log(err));
+    axios
+      .get("https://twitterapi.liara.run/api/getAllUser", {
+        headers: {
+          "x-auth-token": localStorage.getItem("x-auth-token"),
+        },
+      })
+      .then((response) => setUser(response.data));
   }, []);
 
   const toggleMenu = (event) => {
@@ -82,6 +85,7 @@ const LeftSideBar = () => {
         });
     }
   };
+
   return (
     <Container className={classes.root}>
       <SearchBar />

@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const TweetsByHashTags = ({ data }) => {
   const classes = useStyle();
   return (
-    <Link to={`/hashTag/${data}`} className={classes.hashLink}>
+    <Link to={`/hashTag/${data.text}`} className={classes.hashLink}>
       <img src={Hashtag} alt="HashTag-Logo" className={classes.hashLogo} />
-      <Typography className={classes.TagText}>{data}</Typography>
+      <Typography className={classes.TagText}>{data.text}</Typography>
     </Link>
   );
 };
