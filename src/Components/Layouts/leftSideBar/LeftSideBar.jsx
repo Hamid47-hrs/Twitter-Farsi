@@ -30,7 +30,8 @@ const LeftSideBar = () => {
           "x-auth-token": localStorage.getItem("x-auth-token"),
         },
       })
-      .then((response) => setUser(response.data));
+      .then((response) => setUser(response.data))
+      .catch((error) => console.log(error));
   }, []);
 
   const toggleMenu = (event) => {
