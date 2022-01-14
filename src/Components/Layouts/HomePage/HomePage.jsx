@@ -7,14 +7,22 @@ import Header from "../Header/Header";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import {
+  useElementState,
+  setTweetText as setTweet,
+  useElementDispatch,
+} from "../../Context/ElementContext";
 
 const HomeP = () => {
   const classes = useStyle();
+
   const [posts, setPosts] = useState([]);
-  const [tweet, setTweet] = useState("");
   const [imageFile, setImageFile] = useState([]);
   const [imagePath, setImagePath] = useState("");
   const [style, setStyle] = useState({ display: "none" });
+
+  const { tweetText } = useElementState();
+  const tweetDispatch = useElementDispatch();
 
   const inputFile = useRef();
 
@@ -52,7 +60,7 @@ const HomeP = () => {
 
   const createNewTweet = () => {
     const formData = new FormData();
-    formData.append("text", tweet);
+    formData.append("text", tweetText);
     if (imageFile) formData.append("image", imageFile);
     const config = {
       headers: {
@@ -64,7 +72,7 @@ const HomeP = () => {
       .then((response) => {
         toast.success("پست شما با موفقیت ارسال شد");
         updateTweet();
-        setTweet("");
+        setTweet(tweetDispatch, "");
       })
       .catch((error) => {
         toast.error("ارسال پست ناموفق بود");
@@ -100,12 +108,12 @@ const HomeP = () => {
             />
             <TextField
               className={classes.textInput}
-              value={tweet}
+              value={tweetText}
               placeholder="توییت خود را وارد کنید ..."
               multiline
               row={3}
               maxRows={4}
-              onChange={(event) => setTweet(event.target.value)}
+              onChange={(event) => setTweet(tweetDispatch, event.target.value)}
             />
           </div>
           <div className={classes.buttons}>

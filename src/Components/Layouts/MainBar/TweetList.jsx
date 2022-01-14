@@ -3,9 +3,16 @@ import { Grid, Typography, Button } from "@material-ui/core";
 import { Favorite, Repeat } from "@material-ui/icons";
 import pic from "../../../images/BlankProfile.png";
 import useStyles from "./TweetListStyle";
+import {
+  setTweetText,
+  useElementDispatch,
+} from "../../Context/ElementContext";
+
 const TweetList = ({ data }) => {
   const classes = useStyles();
+
   const [count, setCount] = useState(data.likes);
+  const tweetDispatch = useElementDispatch();
 
   const replacer = require("react-string-replace");
   const renderHashTag = (text) => {
@@ -21,12 +28,16 @@ const TweetList = ({ data }) => {
     ));
   };
 
+  const reTweet = () => {
+    setTweetText(tweetDispatch, data.text);
+  };
+  
   return (
     <Grid container direction={"column"} className={classes.root}>
       <Grid item>
         <Grid container>
           <Grid item className={classes.imageContainer}>
-            {(data.user.image && data.user.image !== "undefined") ? (
+            {data.user.image && data.user.image !== "undefined" ? (
               <img
                 className={classes.profileImage}
                 src={data.user.image}
@@ -42,12 +53,16 @@ const TweetList = ({ data }) => {
           </Grid>
           <Grid item className={classes.content}>
             <div className={classes.introduction}>
-              <Typography className={classes.userName}>{data.user.name}</Typography>
-              <Typography className={classes.userID}>{data.user.id}@</Typography>
+              <Typography className={classes.userName}>
+                {data.user.name}
+              </Typography>
+              <Typography className={classes.userID}>
+                {data.user.id}@
+              </Typography>
             </div>
             <div className={classes.textContainer}>
               <div className={classes.picContainer}>
-                {(data.image && data.image !== "undefined") ? (
+                {data.image && data.image !== "undefined" ? (
                   <img
                     className={classes.userPicture}
                     src={data.image}
@@ -72,7 +87,7 @@ const TweetList = ({ data }) => {
           <Typography className={classes.likeCount}>{count}</Typography>
           <Favorite />
         </Button>
-        <Button className={classes.tweetButton}>
+        <Button className={classes.tweetButton} onClick={reTweet}>
           <Typography>Retweet</Typography>
           <Repeat />
         </Button>
