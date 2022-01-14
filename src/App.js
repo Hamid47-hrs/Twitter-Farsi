@@ -15,35 +15,38 @@ import HomePage from "./Components/Layouts/HomePage/HomePage";
 import TweetByUser from "./Components/Layouts/Pages/Users/TweetByUser";
 import Page404 from "./Components/Layouts/Pages/Page404/Page404";
 import Login from "./Components/Layouts/Pages/Login/Login";
+import { ElementProvider } from "./Components/Context/ElementContext";
 
 const App = () => {
   return (
     <Fragment>
       <Router>
         <Switch>
-          <PublicRoute exact path={"/login"} component={Login} />
+          <PublicRoute path={"/login"} component={Login} />
           <PrivateRoute
             patch={"/"}
             render={() => (
-              <Grid container>
-                <Grid item sm={2} xs={3}>
-                  <RightSideBar />
+              <ElementProvider>
+                <Grid container>
+                  <Grid item sm={2} xs={3}>
+                    <RightSideBar />
+                  </Grid>
+                  <Grid item sm={7} xs={9}>
+                    <MainBar>
+                      <Route exact path={"/"} component={HomePage} />
+                      <Route
+                        exact
+                        path={"/users/:user"}
+                        component={TweetByUser}
+                      />
+                      <Route component={Page404} />
+                    </MainBar>
+                  </Grid>
+                  <Grid item sm={3}>
+                    <LeftSideBar />
+                  </Grid>
                 </Grid>
-                <Grid item sm={7} xs={9}>
-                  <MainBar>
-                    <Route exact path={"/"} component={HomePage} />
-                    <Route
-                      exact
-                      path={"/users/:user"}
-                      component={TweetByUser}
-                    />
-                    <Route component={Page404} />
-                  </MainBar>
-                </Grid>
-                <Grid item sm={3}>
-                  <LeftSideBar />
-                </Grid>
-              </Grid>
+              </ElementProvider>
             )}
           />
         </Switch>
@@ -53,14 +56,14 @@ const App = () => {
   );
 };
 
-const isLogin = localStorage.getItem("x-auth-token");
+const isLogin = () => !!localStorage.getItem("x-auth-token");
 
 const PublicRoute = ({ component, ...props }) => {
   return (
     <Route
       {...props}
       render={(props) => {
-        if (isLogin) return <Redirect to={"/"} />;
+        if (isLogin()) return <Redirect to={"/"} />;
         else return React.createElement(component, props);
       }}
     />
@@ -72,7 +75,7 @@ const PrivateRoute = ({ render, ...props }) => {
     <Route
       {...props}
       render={(props) => {
-        if (isLogin) return render(props);
+        if (isLogin()) return render(props);
         else return <Redirect to={"/login"} />;
       }}
     />
