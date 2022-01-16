@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { Grid, Typography, Button } from "@material-ui/core";
 import { Favorite, Repeat } from "@material-ui/icons";
 import pic from "../../../images/BlankProfile.png";
@@ -31,7 +31,7 @@ const TweetList = ({ data }) => {
     setTweetText(tweetDispatch, data.text);
   };
 
-  const refreshLikes = useCallback(() => {
+  const refreshLikes = () => {
     fetch("https://twitterapi.liara.run/api/getAllTweet", {
       method: "POST",
       headers: {
@@ -44,11 +44,8 @@ const TweetList = ({ data }) => {
         newlikes.map((newLikes) => setLikeTweet(newLikes.likes));
       })
       .catch((err) => console.log(err));
-  });
+  };
 
-  useEffect(() => {
-    refreshLikes();
-  }, [refreshLikes]);
   const uploadLike = (likes) => {
     const config = {
       method: "GET",
