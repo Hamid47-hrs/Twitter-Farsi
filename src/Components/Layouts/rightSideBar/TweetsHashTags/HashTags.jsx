@@ -1,9 +1,9 @@
-import { Button, Typography } from "@material-ui/core";
-import useStyle from "./TweetsByHashTagsStyle";
+import { Typography } from "@material-ui/core";
+import useStyle from "./HashTagsStyle";
 import Hashtag from "../../../../images/HashTag.png";
 import { Link } from "react-router-dom";
 
-const TweetsByHashTags = ({ data }) => {
+const HashTags = ({ data }) => {
   const classes = useStyle();
   return (
     <Link to={`/hashTag/${data.text}`} className={classes.hashLink}>
@@ -13,4 +13,4 @@ const TweetsByHashTags = ({ data }) => {
   );
 };
 
-export default TweetsByHashTags;
+export default HashTags;
