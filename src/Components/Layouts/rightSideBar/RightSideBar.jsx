@@ -2,7 +2,7 @@ import { Container, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import useStyles from "./RightBarStyle";
 import logo from "../../../images/Butterfly.svg";
-import TweetsByHashTags from "./TweetsHashTags/TweetsByHashTags";
+import HashTags from "./TweetsHashTags/HashTags";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -36,7 +36,7 @@ const RightSideBar = () => {
         <Typography className={classes.hashtag}>داغ ترین هشتگ ها</Typography>
         <div>
           {hashTags.map((tweet, index) => (
-            <TweetsByHashTags key={index} data={tweet} />
+            <HashTags key={index} data={tweet} />
           ))}
         </div>
       </div>
