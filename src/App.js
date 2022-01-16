@@ -16,6 +16,7 @@ import TweetByUser from "./Components/Layouts/Pages/Users/TweetByUser";
 import Page404 from "./Components/Layouts/Pages/Page404/Page404";
 import Login from "./Components/Layouts/Pages/Login/Login";
 import { ElementProvider } from "./Components/Context/ElementContext";
+import TweetByHashTags from "./Components/Layouts/Pages/HashTags/TweetByHashTags";
 
 const App = () => {
   return (
@@ -38,6 +39,11 @@ const App = () => {
                         exact
                         path={"/users/:user"}
                         component={TweetByUser}
+                      />
+                      <Route
+                        exact
+                        path={"/hashTag/:hashtag"}
+                        component={TweetByHashTags}
                       />
                       <Route component={Page404} />
                     </MainBar>
